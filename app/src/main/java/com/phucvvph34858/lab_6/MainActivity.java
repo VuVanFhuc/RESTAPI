@@ -1,4 +1,4 @@
-package com.example.and103_thanghtph31577_lab5;
+package com.phucvvph34858.lab_6;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -8,25 +8,22 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.and103_thanghtph31577_lab5.adapter.DistributorAdapter;
-import com.example.and103_thanghtph31577_lab5.databinding.ActivityMainBinding;
-import com.example.and103_thanghtph31577_lab5.databinding.DialogAddBinding;
-import com.example.and103_thanghtph31577_lab5.model.Distributor;
-import com.example.and103_thanghtph31577_lab5.model.Response;
-import com.example.and103_thanghtph31577_lab5.services.HttpRequest;
-
+import com.phucvvph34858.lab_6.databinding.ActivityMainBinding;
+import com.phucvvph34858.lab_6.databinding.DialogAddBinding;
+import com.phucvvph34858.lab_6.adapter.DistributorAdapter;
+import com.phucvvph34858.lab_6.model.Distributor;
+import com.phucvvph34858.lab_6.model.Response;
+import com.phucvvph34858.lab_6.services.HttpRequest;
 
 import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-
 
 public class MainActivity extends AppCompatActivity implements DistributorAdapter.DistributorClick {
     private ActivityMainBinding binding;
@@ -36,18 +33,16 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
     private static final String TAG = "MainActivity";
     private ProgressDialog progressDialog;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         fetchAPI();
         userListener();
     }
+
     private void fetchAPI() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Loading...");
@@ -85,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
             }
         });
     }
+
     private void showDialogAdd() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add distributor");
@@ -97,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
                 String name = binding1.etName.getText().toString().trim();
                 if (name.isEmpty()) {
                     Toast.makeText(MainActivity.this, "you must enter name", Toast.LENGTH_SHORT).show();
-                }   else {
+                } else {
                     Distributor distributor = new Distributor();
                     distributor.setName(name);
                     httpRequest.callAPI()
@@ -110,17 +106,11 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
         alertDialog.show();
     }
 
-
-
-
     private void getData() {
-
-
-        adapter = new DistributorAdapter(list, this,this );
+        adapter = new DistributorAdapter(list, this, this);
         binding.rcvDistributor.setAdapter(adapter);
         progressDialog.dismiss();
     }
-
 
     Callback<Response<ArrayList<Distributor>>> getDistributorAPI = new Callback<Response<ArrayList<Distributor>>>() {
         @Override
@@ -129,28 +119,25 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
                 if (response.body().getStatus() == 200) {
                     list = response.body().getData();
                     getData();
-                    Log.d(TAG, "onResponse: "+ list.size());
+                    Log.d(TAG, "onResponse: " + list.size());
                 }
             }
         }
 
         @Override
         public void onFailure(Call<Response<ArrayList<Distributor>>> call, Throwable t) {
-            Log.e(TAG, "onFailure: "+ t.getMessage() );
+            Log.e(TAG, "onFailure: " + t.getMessage());
         }
-
-
     };
 
-
-    Callback<Response<Distributor>> responseDistributorAPI  = new Callback<Response<Distributor>>() {
+    Callback<Response<Distributor>> responseDistributorAPI = new Callback<Response<Distributor>>() {
         @Override
         public void onResponse(Call<Response<Distributor>> call, retrofit2.Response<Response<Distributor>> response) {
             if (response.isSuccessful()) {
                 if (response.body().getStatus() == 200) {
-                   httpRequest.callAPI()
-                           .getListDistributor()
-                           .enqueue(getDistributorAPI);
+                    httpRequest.callAPI()
+                            .getListDistributor()
+                            .enqueue(getDistributorAPI);
                     Toast.makeText(MainActivity.this, response.body().getMessenger(), Toast.LENGTH_SHORT).show();
                 }
             }
@@ -158,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
 
         @Override
         public void onFailure(Call<Response<Distributor>> call, Throwable t) {
-            Log.e(TAG, "onFailure: "+t.getMessage() );
+            Log.e(TAG, "onFailure: " + t.getMessage());
         }
     };
 
@@ -178,12 +165,12 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
 
                 if (name.isEmpty()) {
                     Toast.makeText(MainActivity.this, "you must enter name", Toast.LENGTH_SHORT).show();
-                }   else {
+                } else {
 
                     Distributor distributor1 = new Distributor();
                     distributor1.setName(binding1.etName.getText().toString().trim());
                     httpRequest.callAPI()
-                            .updateDistributor(distributor.getId(),distributor1)
+                            .updateDistributor(distributor.getId(), distributor1)
                             .enqueue(responseDistributorAPI);
                     alertDialog.dismiss();
                 }
@@ -191,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
         });
         alertDialog.show();
     }
+
     @Override
     public void delete(Distributor distributor) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -205,8 +193,6 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
             dialog.dismiss();
         });
         builder.show();
-
-
     }
 
     @Override
@@ -214,4 +200,3 @@ public class MainActivity extends AppCompatActivity implements DistributorAdapte
         showDialogEdit(distributor);
     }
 }
-

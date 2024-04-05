@@ -1,6 +1,6 @@
-package com.example.and103_thanghtph31577_lab5.services;
+package com.phucvvph34858.lab_6.services;
 
-import static com.example.and103_thanghtph31577_lab5.services.ApiServices.BASE_URL;
+import static com.phucvvph34858.lab_6.services.ApiServices.BASE_URL;
 
 import androidx.annotation.NonNull;
 

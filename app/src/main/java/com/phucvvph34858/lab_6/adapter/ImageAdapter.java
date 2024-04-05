@@ -1,17 +1,16 @@
-package com.example.and103_thanghtph31577_lab5.adapter;
+package com.phucvvph34858.lab_6.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.and103_thanghtph31577_lab5.R;
-import com.example.and103_thanghtph31577_lab5.databinding.ItemFruitBinding;
-import com.example.and103_thanghtph31577_lab5.databinding.ItemImageBinding;
+import com.phucvvph34858.lab_6.R;
+import com.phucvvph34858.lab_6.databinding.ItemFruitBinding;
+import com.phucvvph34858.lab_6.databinding.ItemImageBinding;
 
 import java.util.ArrayList;
 

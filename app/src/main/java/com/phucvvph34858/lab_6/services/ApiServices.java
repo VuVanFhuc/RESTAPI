@@ -1,10 +1,10 @@
-package com.example.and103_thanghtph31577_lab5.services;
+package com.phucvvph34858.lab_6.services;
 
-import com.example.and103_thanghtph31577_lab5.model.Distributor;
-import com.example.and103_thanghtph31577_lab5.model.Fruit;
-import com.example.and103_thanghtph31577_lab5.model.Page;
-import com.example.and103_thanghtph31577_lab5.model.Response;
-import com.example.and103_thanghtph31577_lab5.model.User;
+import com.phucvvph34858.lab_6.model.Distributor;
+import com.phucvvph34858.lab_6.model.Fruit;
+import com.phucvvph34858.lab_6.model.Page;
+import com.phucvvph34858.lab_6.model.Response;
+import com.phucvvph34858.lab_6.model.User;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -26,7 +26,7 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface ApiServices {
-    public static String BASE_URL = "http://10.0.2.2:3000/api/";
+    public static String BASE_URL = "http://192.168.0.104:3000/api/";
 
     @GET("get-list-distributor")
     Call<Response<ArrayList<Distributor>>> getListDistributor();

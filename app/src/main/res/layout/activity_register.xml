@@ -101,7 +101,7 @@
         android:id="@+id/btn_register"
         android:text="Register"
         android:layout_marginTop="20dp"
-        android:backgroundTint="@color/cardview_dark_background"
+        android:backgroundTint="#E91E63"
         />
     <TextView
         android:id="@+id/tv_login"

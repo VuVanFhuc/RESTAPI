@@ -1,4 +1,4 @@
-package com.example.and103_thanghtph31577_lab5;
+package com.phucvvph34858.lab_6;
 
 import org.junit.Test;
 
