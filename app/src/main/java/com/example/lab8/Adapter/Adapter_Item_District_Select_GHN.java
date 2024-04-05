@@ -18,21 +18,29 @@ import java.util.ArrayList;
 
 public class Adapter_Item_District_Select_GHN extends ArrayAdapter<District> {
     private Context context;
+
     private ArrayList<District> list;
+
+
 
     public Adapter_Item_District_Select_GHN(@NonNull Context context, ArrayList<District> list) {
         super(context, 0, list);
         this.context = context;
         this.list = list;
+
     }
+
 
     @NonNull
     @Override
+
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }
 
+
     @Override
+
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }

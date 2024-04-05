@@ -37,6 +37,10 @@ public class LocationActivity extends AppCompatActivity {
     private String productId, productTypeId, productName, description, WardCode;
     private double rate, price;
     private int image, DistrictID, ProvinceID ;
+
+
+
+
     private Adapter_Item_Province_Select_GHN adapter_item_province_select_ghn;
     private Adapter_Item_District_Select_GHN adapter_item_district_select_ghn;
     private Adapter_Item_Ward_Select_GHN adapter_item_ward_select_ghn;
