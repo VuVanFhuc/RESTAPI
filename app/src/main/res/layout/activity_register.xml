@@ -9,24 +9,15 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     >
-    <RelativeLayout
-        android:id="@+id/toolbar"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="@android:dimen/app_icon_size"
-        android:background="#FFC107"
-        android:layout_marginBottom="20dp"
-        android:gravity="start|center_vertical"
-
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginStart="20dp"
-            />
-    </RelativeLayout>
+        android:text="LOGIN"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"/>
     <ImageView
         android:id="@+id/avatar"
         android:layout_marginTop="20dp"

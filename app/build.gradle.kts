@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.phucvvph34858.lab_6"
+    namespace = "com.phucvvph34858.lab_asm"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.phucvvph34858.lab_6"
+        applicationId = "com.phucvvph34858.lab_asm"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
